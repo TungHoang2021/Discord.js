@@ -1,8 +1,14 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const client = new Discord.Client();
 
-bot.on('ready', () => {
-  console.log('This Bot Is Online');
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
-bot.login('ODUzMTAxNzUyODI0MTAyOTMy.YMQe6w.pJ2XIvtFGBG4Bes8lPxIbwRLkLg');
+client.on('message', msg => {
+  if (msg.content === 'ping') {
+    msg.channel.send('pong');
+  }
+});
+
+client.login('token');
